@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Performance Analyzer</title>
+
+    <link rel="stylesheet" href="https://pyscript.net/releases/2025.7.3/core.css">
+    <script type="module" src="https://pyscript.net/releases/2025.7.3/core.js"></script>
+        <py-config>
+          packages = ["numpy", "matplotlib"]
+        </py-config>
+
+    <style>
+        body {
+            font-family: 'Gill Sans', sans-serif;
+            background: #ffb2ff;
+            background-image: url('https://img.magnific.com/premium-vector/y2k-abstract-purple-background-with-grid-stars-pastel-mesh-gradient-squared-wallpaper-trendy-minimalist-vector-design-brutalism-style_647468-775.jpg'); background-size: cover; background-position: center;
+            margin: 0;
+            padding: 30px;
+        }
+
+        .container {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+
+        .card {
+            width: 600px;
+            background: #d4ffe3;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2); position: relative;top: 95px; left: 200px ;
+        }
+
+         .card1 {
+            width: 90%;
+            background: #e6398d;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2); color: beige;
+        }
+
+        h1 {
+            color: #e6398d;
+            font-size: 45px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 8px;
+        }
+
+        select{
+            width: 99%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+         input {
+            width: 95%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 20px;
+            border: none;
+            background: #0da792;
+            color: white;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #e6398d;
+        }
+/* 
+        #output {
+            margin-top: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            min-height: 140px;
+            white-space: pre-line;
+        } */
+
+        .graph-section {
+            background: white; outline: #e6398d;
+            padding: 20px;
+            border-color: #e6398d; 
+            border-radius: 15px;
+            width: 800px; text-align: center; position: relative; top: 95px; left: 300px ;
+        }
+
+        #plot {
+            margin-top: 20px; align-items: baseline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="card">
+        <h1>Student Performance Analyzer</h1>
+         <div class="card1">  
+            <output> 
+                This project analyzes students' quiz scores using Python, NumPy, and Matplotlib.
+                It calculates the average, highest score, lowest score, and visualizes the data
+                in a graph.
+                
+            </output>
+        </div> 
+
+        <label>Select Activity</label>
+        <select id="SelectActivity">
+            <option value="" disabled selected hidden>Select an option</option>
+            <option value="Drill1">Drill #1</option>
+            <option value="Drill2">Drill #2</option>
+            <option value="Seatwork1">Seatwork #1</option>
+            <option value="Seatwork2">Seatwork #2</option>
+            <option value="SkillsTest">Skills Test</option>
+            <option value="QuarterProject">Quarter Project</option>
+        </select>
+
+        <label>Enter Score</label>
+        <input type="number" id="scoreInput" placeholder="Enter score">
+
+        <button py-click="add_score">Submit</button>
+      
+
+        <div id="output"></div>
+    </div>
+    
+
+    <div class="graph-section">
+        <h2>Student Performance Graph</h2>
+        <div id="plot"></div>
+    </div>
+
+</div>
+
+<py-script src="MAINN.py"></py-script>
+
+</body>
+</html>
